@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+// Base class
+class Item {
+public:
+    string name;
+    int price;
+
+    Item(string n, int p) : name(n), price(p) {}
+};
+
+
+class Food : public Item {
+public:
+    Food(string n, int p) : Item(n, p) {}
+};
+
+
+class Drink : public Item {
+public:
+    Drink(string n, int p) : Item(n, p) {}
+};
+
+
+class Order {
+private:
+    Food foodItem;
+    Drink drinkItem;
+    int quantity;
+
+public:
+    Order(Food f, Drink d, int q) : foodItem(f), drinkItem(d), quantity(q) {}
+
+    void printBill() {
+        int total = foodItem.price + drinkItem.price;
+        cout << "Item: " << foodItem.name << ", Price: " << foodItem.price << endl;
+        cout << "Item: " << drinkItem.name << ", Price: " << drinkItem.price << endl;
+        cout << "Quantity: " << quantity << endl;
+        cout << "Total: " << total * quantity << endl;
+    }
+};
+
+int main() {
+    Food food("Burger", 100);
+    Drink drink("Coke", 50);
+    Order order(food, drink, 2);
+    order.printBill();
+    return 0;
+}

@@ -1,0 +1,37 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class DynamicArray {
+private:
+    vector<int> arr;
+
+public:
+    // constructor with initial size
+    DynamicArray(int size) {
+        for (int i = 0; i < size; i++) {
+            arr.push_back(0);
+        }
+    }
+
+    // function to add an element to the array
+    void addElement(int element) {
+        arr.push_back(element);
+    }
+
+    // function to print the array
+    void printArray() {
+        for (int i = 0; i < arr.size(); i++) {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    DynamicArray da(5); // create an object of DynamicArray with initial size 5
+    da.addElement(10); // add an element to the array
+    da.addElement(20); // add another element to the array
+    da.printArray(); // print the array
+    return 0;
+}

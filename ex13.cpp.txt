@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+class ArraySum {
+private:
+    int arr1[3];
+    int arr2[3];
+    int sum1, sum2;
+
+public:
+    
+    ArraySum() {
+        sum1 = sum2 = 0;
+        for (int i = 0; i < 3; i++) {
+            arr1[i] = rand() % 10;
+            arr2[i] = rand() % 10;
+            sum1 += arr1[i];
+            sum2 += arr2[i];
+        }
+    }
+
+    
+    void findHigherSum() {
+        if (sum1 > sum2)
+            cout << "Array 1 has a higher sum: " << sum1 << endl;
+        else if (sum2 > sum1)
+            cout << "Array 2 has a higher sum: " << sum2 << endl;
+        else
+            cout << "Both arrays have equal sum: " << sum1 << endl;
+    }
+
+        void printArrays() {
+        cout << "Array 1: ";
+        for (int i = 0; i < 3; i++)
+            cout << arr1[i] << " ";
+        cout << endl;
+
+        cout << "Array 2: ";
+        for (int i = 0; i < 3; i++)
+            cout << arr2[i] << " ";
+        cout << endl;
+    }
+};
+
+int main() {
+    ArraySum obj;
+    obj.printArrays();
+    obj.findHigherSum();
+    return 0;
+}
